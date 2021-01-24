@@ -1,0 +1,29 @@
+extends layouts/main.pug
+
+block content
+
+    .join__image
+    // 그림넣기
+    .join__main 가입하기
+        form.join__form(action='/join', method='post')
+            .join__form__ID
+                input(type="text" class="join__form__ID__input" name="emailId" placeholder="이메일")
+                .join__form__ID__at @
+                select(class="join__form__ID__email" name="emailDomain")
+                    option(value='gmail.com') gmail.com
+                    option(value='naver.com') naver.com
+                    option(value='daum.net') daum.net
+            .join__form__password
+                input(type="password" class="join__form__password__input" name="password" placeholder="비밀번호 (8자리 이상)")
+            .join__form__password__confirm
+                input(type="password" class="join__form__confirm__input" name="password2" placeholder="비밀번호 확인")
+            if passwordUnmatch
+                .join__form__password__confirm__wrong
+                | 비밀번호가 일치하지 않습니다
+            
+            .join__form__guideline 버튼을 클릭함으로써 아트클립의 이용약관과 개인정보보호정책에 동의합니다.
+            button(class= "join__form__submit") 회원가입
+            .join__already 이미 가입하셨나요? 로그인
+            .join__divider
+    .titlebar 가입하기
+    include partials/socialLogin.pug

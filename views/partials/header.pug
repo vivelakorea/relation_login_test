@@ -1,0 +1,23 @@
+header.header
+    .header__logo
+        a(href = "/") art clip
+        img.header__logo__circle(src="../../stylesheets/img/favicon.png")
+    .header__column
+        form(action='/search', method='get')
+            input.search__text(type='text', placeholder='Searching by term...', name='term')
+        if !user
+            .header__column__divider
+            .header__column__signin
+                a(href='/login') 로그인
+            .header__column__divider
+            .header__column__signup
+                a(href='/join') 회원가입
+        else 
+            .header__column__upload
+                a(href='/images/upload') Upload
+            .header__column__divider
+            .header__column__profile
+                a(href=`/users/:id`) 프로필
+            .header__column__divider
+            .header__column__profile
+                a(href='/logout') 로그아웃

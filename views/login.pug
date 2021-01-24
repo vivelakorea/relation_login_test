@@ -1,0 +1,16 @@
+extends layouts/main.pug
+
+block content
+    .login__image
+    // 그림넣기
+    .login__main 가입하기
+    form.login__form(action="/login" method="post")
+        .login__form__ID
+            input(type="text" class="login__form__ID__input" name="email" placeholder="이메일")
+        .login__form__password
+            input(type="password" class="login__form__password__input" name="password" placeholder="비밀번호 (8자리 이상)")
+        .login_form__find 이메일/비밀번호 찾기
+        button(class="login__form__submit") 로그인
+        .login__already 아직 회원이 아니신가요? 가입하기
+        .login__divider
+    include partials/socialLogin

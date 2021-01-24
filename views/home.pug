@@ -1,0 +1,7 @@
+extends layouts/main
+
+block content
+    if user
+        p hello #{user.email.split('@')[0]}
+    else
+        p hello stranger
