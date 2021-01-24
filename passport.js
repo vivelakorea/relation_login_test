@@ -32,7 +32,7 @@ passport.use(
                     return cb(null, user);
                 } else {
                     const newUser = await User.create({
-                        email,
+                        email: email || name, // 카카오 동의 화면에서 email 동의 안했으면 email field에 그냥 이름 넣음. (usernameField가 email이라서 일단 이렇게)
                         name,
                         kakaoId: id,
                         avatarUrl: profile_image,
